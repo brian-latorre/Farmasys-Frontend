@@ -1,29 +1,10 @@
 <div class="farmasys-app">
   <header class="topbar">
     <div class="logo-wrapper" (click)="mostrarCatalogo = false" style="cursor: pointer">
-      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M12 2V6M12 18V22M6 12H2M22 12H18M12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6Z"
-          stroke="#1A535C"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-        <path
-          d="M12 8V16M8 12H16"
-          stroke="#4ECDC4"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
+      <img src="icons/logo.png" alt="Logo" class="logo-icon" />
       <span class="logo-text">FarmaSys</span>
     </div>
-    <div
-      class="breadcrumb-text ms-4"
-      *ngIf="mostrarCatalogo"
-      style="color: #6c757d; font-size: 0.95rem"
-    >
+    <div class="breadcrumb-text ms-4" *ngIf="mostrarCatalogo" style="color: #6c757d; font-size: 0.95rem">
       <span>Inventario > </span><span style="color: #000; font-weight: 500">Buscar Catálogo</span>
     </div>
   </header>
