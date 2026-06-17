@@ -1,0 +1,169 @@
+:host {
+  display: block;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #efefef;
+  min-height: 100vh;
+}
+
+.farmasys-app {
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #000000;
+}
+
+.main-content {
+  padding: 2.5rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header-section {
+  margin-bottom: 2.5rem;
+}
+
+.header-section h1 {
+  font-size: 1.8rem;
+  color: #1b4b62;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.header-section p {
+  color: #555555;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.module-card {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.module-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  border-color: #008778;
+}
+
+.icon-container {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.custom-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  color: #1b4b62;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 60px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-height: 60px;
+}
+
+.text-container h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #008778;
+  margin: 0 0 0.35rem 0;
+}
+
+.text-container p {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.3;
+}
+
+@media (max-width: 1024px) {
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .modules-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .header-section h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.btn-outline-volver {
+  background-color: transparent;
+  color: #1b4b62;
+  border: 2px solid #1b4b62;
+  font-weight: 600;
+  padding: 0.5rem 2.5rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn-outline-volver:hover {
+  background-color: #1b4b62;
+  color: #ffffff;
+}

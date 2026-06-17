@@ -1,0 +1,43 @@
+<div class="custom-container mt-2">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="title-catalog">Buscar Catálogo</h2>
+    <button class="btn btn-new-product">Nuevo Producto</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table custom-table text-center align-middle">
+      <thead>
+        <tr>
+          <th>CUP</th>
+          <th>Descripción</th>
+          <th>Laboratorio</th>
+          <th>Reg. Sanitario</th>
+          <th>Condición</th>
+          <th>P. Costo</th>
+          <th>P. Venta</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prod of productos">
+          <td class="fw-medium" style="font-size: 0.9rem">{{ prod.codBarras }}</td>
+          <td>{{ prod.descripcion }}</td>
+          <td>{{ prod.laboratorio }}</td>
+          <td>{{ prod.registroSanitario }}</td>
+          <td>
+            <span class="badge rounded-pill" style="background-color: #4ecdc4; color: #1b4b62">
+              {{ prod.condicionVenta }}
+            </span>
+          </td>
+          <td style="color: #6c757d">S/{{ prod.precioCosto | number: '1.2-2' }}</td>
+          <td class="fw-bold">S/{{ prod.precioVenta | number: '1.2-2' }}</td>
+          <td>
+            <button class="btn btn-edit rounded-pill px-4 py-1">editar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="productos.length === 0" class="alert alert-warning mt-3">
+    Aún no hay productos registrados en el inventario.
+  </div>
+</div>
