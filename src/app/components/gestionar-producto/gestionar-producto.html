@@ -1,8 +1,63 @@
 <div class="custom-container mt-2">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="title-catalog">Buscar Catálogo</h2>
-    <button class="btn btn-new-product">Nuevo Producto</button>
+    <h2 class="title-catalog">Gestionar Catálogo</h2>
+    <button class="btn btn-new-product" (click)="nuevoProducto()" *ngIf="!mostrarFormulario">Nuevo Producto</button>
   </div>
+
+  <div *ngIf="mensajeError" class="alert alert-danger">
+    {{ mensajeError }}
+  </div>
+
+  <div *ngIf="mostrarFormulario" class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">{{ productoEnEdicionId ? 'Editar Producto' : 'Registrar Producto' }}</h5>
+      <form [formGroup]="productoForm" (ngSubmit)="guardarProducto()">
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Código de Barras (CUP)</label>
+            <input type="text" class="form-control" formControlName="codBarras">
+          </div>
+          <div class="col-md-8">
+            <label class="form-label">Descripción</label>
+            <input type="text" class="form-control" formControlName="descripcion">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Laboratorio</label>
+            <input type="text" class="form-control" formControlName="laboratorio">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Reg. Sanitario</label>
+            <input type="text" class="form-control" formControlName="registroSanitario">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Condición Venta</label>
+            <select class="form-select" formControlName="condicionVenta">
+              <option value="LIBRE">LIBRE</option>
+              <option value="RECETA_SIMPLE">RECETA_SIMPLE</option>
+              <option value="RECETA_RETENIDA">RECETA_RETENIDA</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">Precio Costo (S/)</label>
+            <input type="number" step="0.01" class="form-control" formControlName="precioCosto">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Precio Venta (S/)</label>
+            <input type="number" step="0.01" class="form-control" formControlName="precioVenta">
+          </div>
+        </div>
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary" (click)="cancelarFormulario()">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div class="table-responsive">
     <table class="table custom-table text-center align-middle">
       <thead>
@@ -14,7 +69,7 @@
           <th>Condición</th>
           <th>P. Costo</th>
           <th>P. Venta</th>
-          <th></th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -31,7 +86,8 @@
           <td style="color: #6c757d">S/{{ prod.precioCosto | number: '1.2-2' }}</td>
           <td class="fw-bold">S/{{ prod.precioVenta | number: '1.2-2' }}</td>
           <td>
-            <button class="btn btn-edit rounded-pill px-4 py-1">editar</button>
+            <button class="btn btn-sm btn-edit rounded-pill px-3 py-1 me-1" (click)="editarProducto(prod)">editar</button>
+            <button class="btn btn-sm btn-danger rounded-pill px-3 py-1" (click)="eliminarProducto(prod.id)">X</button>
           </td>
         </tr>
       </tbody>

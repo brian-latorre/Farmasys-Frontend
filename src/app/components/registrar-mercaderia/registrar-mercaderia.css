@@ -1,0 +1,17 @@
+.custom-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+.title-catalog {
+  color: #1b4b62;
+  font-weight: 700;
+  margin: 0;
+}
+.card {
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}

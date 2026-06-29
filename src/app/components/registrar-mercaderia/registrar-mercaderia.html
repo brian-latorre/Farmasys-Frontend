@@ -1,0 +1,39 @@
+<div class="custom-container mt-2">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="title-catalog">Registrar Mercadería (Entrada a Kardex)</h2>
+  </div>
+
+  <div *ngIf="mensaje" class="alert" [ngClass]="esExito ? 'alert-success' : 'alert-danger'">
+    {{ mensaje }}
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <form [formGroup]="mercaderiaForm" (ngSubmit)="registrarIngreso()">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Escanear/Ingresar Código de Barras (CUP)</label>
+            <input type="text" class="form-control" formControlName="codBarrasProducto" placeholder="Ej: 123456789">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Cantidad a Ingresar</label>
+            <input type="number" class="form-control" formControlName="stockFisico" min="1">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">N° de Lote</label>
+            <input type="text" class="form-control" formControlName="nroLote">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Fecha de Vencimiento</label>
+            <input type="date" class="form-control" formControlName="fechaVencimiento">
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary px-4 py-2" style="background-color: #1b4b62; border: none; border-radius: 8px;">Registrar Entrada</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
